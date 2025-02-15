@@ -1,0 +1,16 @@
+# Ignore Qt Creator build directories
+build*/
+*.pro.user
+*.pro.user.*
+*.qtc
+*.moc/
+*.qmake.stash
+*.obj/
+*.o
+*.exe
+*.dll
+*.so
+*.app
+*.dSYM/
+*.cache/
+*.log
