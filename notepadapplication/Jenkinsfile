@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/yourusername/maximus.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh '''
+                cd notepadapplication
+                mkdir -p build
+                cd build
+                cmake ..
+                cmake --build .
+                '''
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh '''
+                cd notepadapplication/build
+                ctest --output-on-failure
+                '''
+            }
+        }
+    }
+}
